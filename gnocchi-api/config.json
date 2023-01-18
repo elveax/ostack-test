@@ -1,0 +1,27 @@
+{
+    "command": "httpd -DFOREGROUND",
+    "config_files": [
+        {
+            "source": "/var/lib/kolla/config_files/gnocchi.conf",
+            "dest": "/etc/gnocchi/gnocchi.conf",
+            "owner": "gnocchi",
+            "perm": "0600"
+        },
+        {
+            "source": "/var/lib/kolla/config_files/wsgi-gnocchi.conf",
+            "dest": "/etc/httpd/conf.d/wsgi-gnocchi.conf",
+            "owner": "gnocchi",
+            "perm": "0600"
+        }
+    ],
+    "permissions": [
+        {
+            "path": "/var/lib/gnocchi",
+            "owner": "gnocchi:gnocchi"
+        },
+        {
+            "path": "/var/log/kolla/gnocchi",
+            "owner": "gnocchi:kolla"
+        }
+    ]
+}
